@@ -1,0 +1,33 @@
+#Redis/REmote Dictionary Server is an open source (BSD licensed), in-memory data structure store, used as database, cache and message broker. 
+#It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperlog
+#logs and geospatial indexes with radius queries. Redis has built-in replication, Lua scripting, LRU eviction, 
+#transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic 
+#partitioning with Redis Cluster.
+
+
+
+Steps:
+
+#1# Install Redis Database on window/linux environment [http://redis.io/]
+https://github.com/downloads/rgl/redis/redis-2.4.6-setup-64-bit.exe [windows]
+
+#2# Run redis server by executting command as 
+C:\Program Files\Redis>redis-server.exe
+
+#3# Run your application
+
+#4#
+C:\Users\ranjan>cd C:\Program Files\Redis
+
+C:\Program Files\Redis>redis-cli.exe
+redis 127.0.0.1:6379> keys *
+1) "\xac\xed\x00\x05t\x00\x0bSubscriberA"
+redis 127.0.0.1:6379>
+
+
+
+How the eviction process works
+It is important to understand that the eviction process works like this:
+A client runs a new command, resulting in more data added.
+Redis checks the memory usage, and if it is greater than the maxmemory limit , it evicts keys according to the policy.
+A new command is executed, and so forth.
